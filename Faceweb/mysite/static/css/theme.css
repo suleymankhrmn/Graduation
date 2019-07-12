@@ -1,0 +1,102 @@
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
+}
+
+
+/* Log in*/
+
+.log{
+  margin-top: 200px;
+}
+
+.log .header{
+  color: #ff0000;
+  text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+}
+/*LOG IN*/
+/* CONTROLLER*/
+.control-table{
+  margin-top: 200px;
+}
+
+control-table .header{
+  text-align: center;
+  font-weight: bold;
+}
+
+/*CONTROLLER*/
+
+
+
+
+
+.nav-bg{
+  background-color:   #FF8C00;
+}
+.nav-link{
+  font-size: 25px;
+  color: #000;
+}
+
+
+
+.attendence .title{
+  text-align: center;
+}
+
+.information{
+  margin-top: 65px;
+}
+
+.information .card-body .nav-item{
+  margin-bottom: 10px;
+}
+
+
+.section{
+  position: relative;
+  padding: 10px;
+}
+.section .title{
+  position: absolute;
+  top: 5px;
+  left: 0px;
+}
+.section .inf{
+  position: absolute;
+  top: 7px;
+  left: 164px;
+}
+.inf-title{
+  margin-top: 10px;
+}
+.lessons .nav-item{
+  margin-left: 10px;
+  background-color: #FF8C00;
+  border-radius: 10px;
+}
+
+.search{
+  margin-bottom: 40px;
+  padding: 50px;
+  background-color: #FF8C00;
+}
+
+
+
+
+
+/*CONTROLLER*/
+
+.ctrl-title{
+  text-align: center;
+  font-weight: bold;
+}
+
+.cam-text{
+  text-align: center;
+  font-weight: bold;
+}

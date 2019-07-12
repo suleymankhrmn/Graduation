@@ -1,0 +1,213 @@
+{% extends 'base.html'%}
+
+{%load static%}
+
+
+{% block body %}
+{% if users.student %}
+    <div class="container information">
+		<h3><i class="fas fa-user"></i> User Information</h3>
+		<div class="card mb-3" >
+		  	<div class="row no-gutters">
+		    	<div class="col-md-4">
+
+		    	</div>
+		    	<div class="col-md-8">
+		      		<div class="card-body">
+						<ul class="nav flex-column">
+						  	<li class="nav-item">
+						    	<div class="section col-md-6">
+		        					<h5 class="title">Name-Surname:</h5>
+		        					<span class="inf">{{users.first_name}} {{users.last_name}}</span>
+		        				</div>
+						 	</li>
+						  	<li class="nav-item">
+						    	<div class="section col-md-6">
+		        					<h5 class="title">Student Id:</h5>
+		        					<span class="inf">{{users.username}}</span>
+		        				</div>
+						 	</li>
+						 	<li class="nav-item">
+						    	<div class="section col-md-6">
+		        					<h5 class="title">Age:</h5>
+		        					<span class="inf">{{users.student.age}}</span>
+		        				</div>
+						  	</li>
+						  	<li class="nav-item">
+						   		<div class="section col-md-6">
+		        					<h5 class="title">Birth Date:</h5>
+		        					<span class="inf">{{users.student.birth_date}}</span>
+		        				</div>
+						  	</li>
+						  	<li class="nav-item">
+						   		<div class="section col-md-6">
+		        					<h5 class="title">Class:</h5>
+		        					<span class="inf">{{users.student.classroom}}</span>
+		        				</div>
+						  	</li>
+
+						</ul>
+		    	</div>
+		    </div>
+
+		</div>
+
+	</div>
+    </div>
+
+
+    <div class="attendence ">
+		<h3 class="title">ATTENDENCE SEARCH</h3>
+		<div class="search  container-fluid">
+			<h4>VIEW DETAILED ATTENDENCE</h4>
+            <form method="GET">
+                <label>Start Date</label>
+               <!-- <input name="sd" value="{{request.GET.sd}}" class="datepicker" data-date-format="yyyy/mm/dd" placeholder="YYYY-MM-DD"> -->
+                <input name="sd" value="{{request.GET.sd}}" type="date" placeholder="YYYY-MM-DD">
+                <label>End Date</label>
+                <input name="fd" value="{{request.GET.fd}}" type="date" placeholder="YYYY-MM-DD">
+
+                <label>Lessons</label>
+                <select name="sl" value="{{request.GET.sl}}"  class="custom-select col-lg-2 col-xl-2">
+					<option>Math</option>
+                    <option>Physics</option>
+                    <option>Biology</option>
+                    <option>Chemistry</option>
+                </select>
+                <button class="btn btn-lg btn-primary" type="submit"><i class="fas fa-search"></i>Search
+
+
+            </form>
+
+
+		</div>
+
+		<h3>DETAILS</h3>
+		<table id="example" class="table display bg-primary">
+			<thead>
+				<tr>
+					<th scope="col">Lessons</th>
+					<th scope="col">Date</th>
+					<th scope="col">Timing</th>
+					<th scope="col">Status</th>
+					<th scope="col">Teacher Name</th>
+				</tr>
+			</thead>
+			<tbody>
+            {% for attendance in attendance_list %}
+				<tr>
+					<td>{{attendance.lessons}}</td>
+					<td>{{attendance.attendance_date}}</td>
+					<td>{{attendance.timing}}</td>
+					<td>{{attendance.status}}</td>
+					<td>{{attendance.teacher_id}}</td>
+				</tr>
+            {% endfor %}
+			</tbody>
+		</table>
+
+	</div>
+{% endif %}
+
+{% if users.teacher %}
+	<div class="container information">
+		<h3><i class="fas fa-user"></i> User Information</h3>
+		<div class="card mb-3" >
+		  	<div class="row no-gutters">
+		    	<div class="col-md-4">
+
+		    	</div>
+		    	<div class="col-md-8">
+		      		<div class="card-body">
+						<ul class="nav flex-column">
+						  	<li class="nav-item">
+						    	<div class="section col-md-6">
+		        					<h5 class="title">Name-Surname:</h5>
+		        					<span class="inf">{{users.first_name}} {{users.last_name}}</span>
+		        				</div>
+						 	</li>
+						  	<li class="nav-item">
+						    	<div class="section col-md-6">
+		        					<h5 class="title">Teacher Id:</h5>
+		        					<span class="inf">{{users.username}}</span>
+		        				</div>
+						 	</li>
+						 	<li class="nav-item">
+						    	<div class="section col-md-6">
+		        					<h5 class="title">Age:</h5>
+		        					<span class="inf">{{users.teacher.age}}</span>
+		        				</div>
+						  	</li>
+
+						  	<li class="nav-item">
+						   		<div class="section col-md-6">
+		        					<h5 class="title">Class:</h5>
+		        					<span class="inf">{{users.teacher.classroom}}</span>
+		        				</div>
+						  	</li>
+
+						</ul>
+		    	</div>
+		    </div>
+
+		</div>
+
+	</div>
+    </div>
+	 <div class="attendence ">
+		<h3 class="title">ATTENDENCE SEARCH</h3>
+		<div class="search  container-fluid">
+			<h4>VIEW DETAILED ATTENDENCE</h4>
+            <form method="GET">
+                <label>Start Date</label>
+               <!-- <input name="sd" value="{{request.GET.sd}}" class="datepicker" data-date-format="yyyy/mm/dd" placeholder="YYYY-MM-DD"> -->
+                <input name="sd1" value="{{request.GET.sd}}" type="date" placeholder="YYYY-MM-DD">
+                <label>End Date</label>
+                <input name="fd1" value="{{request.GET.fd}}" type="date" placeholder="YYYY-MM-DD">
+				<label>Classroom</label>
+				<select name="cl" value="{{request.GET.sl}}"  class="custom-select col-lg-2 col-xl-2">
+					<option>3-A</option>
+                    <option>3-B</option>
+                </select>
+
+                <button class="btn btn-lg btn-primary" type="submit"><i class="fas fa-search"></i>Search
+
+
+            </form>
+
+
+		</div>
+
+		<h3>DETAILS</h3>
+		<table id="example" class="table display bg-primary">
+			<thead>
+				<tr>
+					<th scope="col">Lessons</th>
+					<th scope="col">Date</th>
+					<th scope="col">Timing</th>
+					<th scope="col">Status</th>
+					<th scope="col">Student Id</th>
+				</tr>
+			</thead>
+			<tbody>
+            {% for attendance in attendance_list1 %}
+				<tr>
+					<td>{{attendance.lessons}}</td>
+					<td>{{attendance.attendance_date}}</td>
+					<td>{{attendance.timing}}</td>
+					<td>{{attendance.status}}</td>
+					<td>{{attendance.student_id}}</td>
+				</tr>
+            {% endfor %}
+			</tbody>
+		</table>
+
+	</div>
+{% endif %}
+    {{username}}
+    <h2>fdf</h2>
+    {{users.first_name}}
+    {{users.last_name}}
+    {{users.student.age}}
+
+{% endblock %}
